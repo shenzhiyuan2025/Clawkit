@@ -1,5 +1,5 @@
 
-<h1 align="center">FlowKit</h1>
+<h1 align="center">ClawKit</h1>
 
 <p align="center">
   <strong>Agent's Widget-in-Chat Protocol & Open Ecosystem</strong><br/>
@@ -24,11 +24,11 @@
 
 ---
 
-## What is FlowKit?
+## What is ClawKit?
 
-**FlowKit is an open-source Widget-in-Chat protocol and ecosystem that lets any AI conversation product embed interactive GUI components directly in the dialogue flow.**
+**ClawKit is an open-source Widget-in-Chat protocol and ecosystem that lets any AI conversation product embed interactive GUI components directly in the dialogue flow.**
 
-Today, 99% of AI agents communicate through pure text. But text is a bottleneck — showing 10 restaurants on a map takes 3 seconds with GUI, 30 seconds with text. FlowKit bridges this gap by providing:
+Today, 99% of AI agents communicate through pure text. But text is a bottleneck — showing 10 restaurants on a map takes 3 seconds with GUI, 30 seconds with text. ClawKit bridges this gap by providing:
 
 - 🔌 **A dead-simple protocol** — add a `widgets` field to your agent's JSON response
 - 📦 **30+ built-in widgets** — maps, charts, forms, product cards, timelines, and more
@@ -40,14 +40,14 @@ Today, 99% of AI agents communicate through pure text. But text is a bottleneck 
 ┌──────────────────────────────────────────────────┐
 │  Your Chat App (any conversation product)        │
 │  ┌────────────────────────────────────────────┐  │
-│  │  FlowKit Renderer (React/Vue/Flutter/...)  │  │
+│  │  ClawKit Renderer (React/Vue/Flutter/...)  │  │
 │  │  Auto-renders widgets in dialogue flow     │  │
 │  └──────────────────┬─────────────────────────┘  │
 └─────────────────────┼────────────────────────────┘
-                      │  FlowKit Protocol (JSON)
+                      │  ClawKit Protocol (JSON)
 ┌─────────────────────┼────────────────────────────┐
 │  Agent Backend (any AI agent)                    │
-│  + FlowKit SDK (Python / TypeScript / Java)      │
+│  + ClawKit SDK (Python / TypeScript / Java)      │
 └──────────────────┬──────────────┬────────────────┘
                    ↓              ↓
         ┌──────────────┐  ┌─────────────────┐
@@ -58,18 +58,18 @@ Today, 99% of AI agents communicate through pure text. But text is a bottleneck 
 ```
 <img width="2840" height="6910" alt="image" src="https://github.com/user-attachments/assets/4b754ed7-4c44-4e89-aa21-071d68a32edf" />
 
-## Why FlowKit?
+## Why ClawKit?
 
-| Problem | Current State | FlowKit Solution |
+| Problem | Current State | ClawKit Solution |
 |---------|--------------|-----------------|
 | Agents can only output text | Pure text dialogue is low-bandwidth | Rich GUI widgets embedded in chat |
 | Adding GUI to agents is hard | Requires frontend expertise | **3 lines of code** on agent side |
 | No reusable widget ecosystem | Everyone reinvents the wheel | **Open Registry** with 30+ built-in widgets |
 | Existing protocols are complex | A2UI requires custom Renderer + Catalog | **Plug and play** — one component wraps your chat |
 
-### How FlowKit compares
+### How ClawKit compares
 
-| | FlowKit | A2UI (Google) | MCP Apps | CopilotKit |
+| | ClawKit | A2UI (Google) | MCP Apps | CopilotKit |
 |---|---------|--------------|----------|------------|
 | **What it is** | Widget ecosystem + protocol | Protocol spec only | Platform-embedded apps | Agent frontend framework |
 | **Widget source** | Open Registry (community) | Self-built catalog | Developer-written web apps | Self-built components |
@@ -91,7 +91,7 @@ Today, 99% of AI agents communicate through pure text. But text is a bottleneck 
 |----------|-------------|-------------|
 
 
-> 🚀 **Try the live demo**: `npx create-flowkit-app my-demo && cd my-demo && npm run dev`
+> 🚀 **Try the live demo**: `npx create-ClawKit-app my-demo && cd my-demo && npm run dev`
 
 ---
 
@@ -102,15 +102,15 @@ Today, 99% of AI agents communicate through pure text. But text is a bottleneck 
 Add widgets to your agent's response — that's it:
 
 ```python
-# pip install flowkit
+# pip install ClawKit
 
-from flowkit import FlowKitResponse
+from ClawKit import ClawKitResponse
 
-response = FlowKitResponse(
+response = ClawKitResponse(
     text="Here are nearby restaurants:",
     widgets=[
         {
-            "type": "flowkit/map-list",
+            "type": "ClawKit/map-list",
             "data": {
                 "locations": [
                     {"name": "Sushi Zen", "lat": 31.23, "lng": 121.47, "rating": 4.8},
@@ -128,13 +128,13 @@ response = FlowKitResponse(
 Wrap your existing chat with one component:
 
 ```tsx
-// npm install @flowkit/react
+// npm install @ClawKit/react
 
-import { FlowKitChat } from '@flowkit/react'
+import { ClawKitChat } from '@ClawKit/react'
 
 function App() {
   return (
-    <FlowKitChat
+    <ClawKitChat
       messages={messages}
       onAction={(action) => handleAction(action)}
     />
@@ -144,11 +144,11 @@ function App() {
 
 ### For Widget Developers (Ecosystem)
 
-Publish your component to the FlowKit Registry:
+Publish your component to the ClawKit Registry:
 
 ```tsx
-// Register any React component as a FlowKit widget
-import { registerWidget } from '@flowkit/registry'
+// Register any React component as a ClawKit widget
+import { registerWidget } from '@ClawKit/registry'
 
 registerWidget({
   type: "mycompany/stock-chart",
@@ -162,61 +162,61 @@ registerWidget({
 
 ## Widget Catalog (v0.1)
 
-FlowKit ships with **30+ production-ready widgets** across 6 categories:
+ClawKit ships with **30+ production-ready widgets** across 6 categories:
 
 ### 📊 Data Display
 | Widget | Type ID | Description |
 |--------|---------|-------------|
-| Metric Card | `flowkit/metrics` | KPI cards with trend indicators |
-| Chart | `flowkit/chart` | Line, bar, pie, area charts |
-| DataTable | `flowkit/data-table` | Sortable, filterable data table |
-| Progress Ring | `flowkit/progress` | Circular progress indicator |
-| Timeline | `flowkit/timeline` | Step-by-step event timeline |
-| Comparison | `flowkit/comparison` | Side-by-side feature comparison |
+| Metric Card | `ClawKit/metrics` | KPI cards with trend indicators |
+| Chart | `ClawKit/chart` | Line, bar, pie, area charts |
+| DataTable | `ClawKit/data-table` | Sortable, filterable data table |
+| Progress Ring | `ClawKit/progress` | Circular progress indicator |
+| Timeline | `ClawKit/timeline` | Step-by-step event timeline |
+| Comparison | `ClawKit/comparison` | Side-by-side feature comparison |
 
 ### 📝 Form & Input
 | Widget | Type ID | Description |
 |--------|---------|-------------|
-| Smart Form | `flowkit/form` | Dynamic form with validation |
-| Stepper | `flowkit/stepper` | Multi-step wizard |
-| Date Picker | `flowkit/date-picker` | Date/time selection |
-| File Picker | `flowkit/file-picker` | File upload with preview |
-| Rating | `flowkit/rating` | Star/emoji rating input |
-| Choice Chips | `flowkit/choice-chips` | Single/multi select chips |
+| Smart Form | `ClawKit/form` | Dynamic form with validation |
+| Stepper | `ClawKit/stepper` | Multi-step wizard |
+| Date Picker | `ClawKit/date-picker` | Date/time selection |
+| File Picker | `ClawKit/file-picker` | File upload with preview |
+| Rating | `ClawKit/rating` | Star/emoji rating input |
+| Choice Chips | `ClawKit/choice-chips` | Single/multi select chips |
 
 ### 🗺️ Location & Map
 | Widget | Type ID | Description |
 |--------|---------|-------------|
-| Map | `flowkit/map` | Interactive map view |
-| Map List | `flowkit/map-list` | Map + location list combo |
-| Route View | `flowkit/map-route` | Origin → destination with route |
-| Location Picker | `flowkit/location-picker` | Select a location on map |
+| Map | `ClawKit/map` | Interactive map view |
+| Map List | `ClawKit/map-list` | Map + location list combo |
+| Route View | `ClawKit/map-route` | Origin → destination with route |
+| Location Picker | `ClawKit/location-picker` | Select a location on map |
 
 ### 🛍️ Product & Media
 | Widget | Type ID | Description |
 |--------|---------|-------------|
-| Product Card | `flowkit/product-card` | Product with image, price, rating |
-| Product Carousel | `flowkit/product-carousel` | Swipeable product cards |
-| Gallery | `flowkit/gallery` | Image gallery with lightbox |
-| Video Player | `flowkit/video` | Embedded video player |
-| Audio Player | `flowkit/audio` | Audio player with waveform |
+| Product Card | `ClawKit/product-card` | Product with image, price, rating |
+| Product Carousel | `ClawKit/product-carousel` | Swipeable product cards |
+| Gallery | `ClawKit/gallery` | Image gallery with lightbox |
+| Video Player | `ClawKit/video` | Embedded video player |
+| Audio Player | `ClawKit/audio` | Audio player with waveform |
 
 ### 🔄 Flow & Action
 | Widget | Type ID | Description |
 |--------|---------|-------------|
-| Action Buttons | `flowkit/actions` | Contextual action buttons |
-| Quick Actions | `flowkit/quick-actions` | Pill-shaped quick reply buttons |
-| Checklist | `flowkit/checklist` | Interactive todo checklist |
-| Confirm Dialog | `flowkit/confirm` | Confirmation with options |
-| Status Badge | `flowkit/status` | Status indicator |
+| Action Buttons | `ClawKit/actions` | Contextual action buttons |
+| Quick Actions | `ClawKit/quick-actions` | Pill-shaped quick reply buttons |
+| Checklist | `ClawKit/checklist` | Interactive todo checklist |
+| Confirm Dialog | `ClawKit/confirm` | Confirmation with options |
+| Status Badge | `ClawKit/status` | Status indicator |
 
 ### 💬 Emotion & Feedback
 | Widget | Type ID | Description |
 |--------|---------|-------------|
-| Emotion Feedback | `flowkit/emotion` | Empathetic response with avatar |
-| Context Icon | `flowkit/context-icon` | Contextual icon/illustration |
-| Loading Narrative | `flowkit/loading` | Story-driven loading state |
-| Feedback Prompt | `flowkit/feedback` | Thumbs up/down + comment |
+| Emotion Feedback | `ClawKit/emotion` | Empathetic response with avatar |
+| Context Icon | `ClawKit/context-icon` | Contextual icon/illustration |
+| Loading Narrative | `ClawKit/loading` | Story-driven loading state |
+| Feedback Prompt | `ClawKit/feedback` | Thumbs up/down + comment |
 
 > **See full catalog**: [docs/WIDGET_CATALOG.md](docs/WIDGET_CATALOG.md)
 >
@@ -226,11 +226,11 @@ FlowKit ships with **30+ production-ready widgets** across 6 categories:
 
 ## Protocol Overview
 
-FlowKit Protocol is intentionally minimal. A widget embedding requires only 3 fields:
+ClawKit Protocol is intentionally minimal. A widget embedding requires only 3 fields:
 
 ```json
 {
-  "type": "flowkit/map-route",
+  "type": "ClawKit/map-route",
   "data": { "origin": {...}, "destination": {...} },
   "options": { "style": "compact" }
 }
@@ -246,15 +246,15 @@ FlowKit Protocol is intentionally minimal. A widget embedding requires only 3 fi
 
 ### Message Format
 
-FlowKit does **not** replace your existing message format. It adds an optional `widgets` array:
+ClawKit does **not** replace your existing message format. It adds an optional `widgets` array:
 
 ```json
 {
   "role": "assistant",
   "content": "I found these restaurants for you:",
   "widgets": [
-    { "type": "flowkit/map-list", "data": {...} },
-    { "type": "flowkit/quick-actions", "data": {...} }
+    { "type": "ClawKit/map-list", "data": {...} },
+    { "type": "ClawKit/quick-actions", "data": {...} }
   ]
 }
 ```
@@ -273,12 +273,12 @@ Widgets operate at two trust levels:
 ```
 User clicks button in widget
         ↓
-FlowKit Renderer captures action event
+ClawKit Renderer captures action event
         ↓
 Event dispatched to Agent backend
 {
   "action": "call_ride",
-  "widgetType": "flowkit/map-route",
+  "widgetType": "ClawKit/map-route",
   "context": { "origin": {...}, "destination": {...} }
 }
         ↓
@@ -302,7 +302,7 @@ Agent processes and responds (possibly with new widgets)
 │        └────────────┬────────────┴──────────────┘            │
 │                     │                                        │
 │           ┌─────────┴─────────┐                              │
-│           │  @flowkit/core    │  Protocol parser, validator, │
+│           │  @ClawKit/core    │  Protocol parser, validator, │
 │           │                   │  widget resolver, action bus │
 │           └─────────┬─────────┘                              │
 └─────────────────────┼────────────────────────────────────────┘
@@ -326,15 +326,15 @@ Agent processes and responds (possibly with new widgets)
 
 | Package | Description | Status |
 |---------|-------------|--------|
-| `@flowkit/protocol` | JSON Schema definitions, TypeScript types, validators | 🚧 In Development |
-| `@flowkit/core` | Protocol parser, widget resolver, action event bus | 🚧 In Development |
-| `@flowkit/react` | React Renderer — `<FlowKitChat>` component | 🚧 In Development |
-| `@flowkit/vue` | Vue 3 Renderer | 📋 Planned |
-| `@flowkit/flutter` | Flutter Renderer | 📋 Planned |
-| `flowkit` (Python) | Python SDK for agent developers | 🚧 In Development |
-| `@flowkit/sdk` | TypeScript SDK for agent developers | 🚧 In Development |
-| `@flowkit/registry` | Widget Registry client + publishing tools | 📋 Planned |
-| `@flowkit/widgets` | 30+ official built-in widgets | 🚧 In Development |
+| `@ClawKit/protocol` | JSON Schema definitions, TypeScript types, validators | 🚧 In Development |
+| `@ClawKit/core` | Protocol parser, widget resolver, action event bus | 🚧 In Development |
+| `@ClawKit/react` | React Renderer — `<ClawKitChat>` component | 🚧 In Development |
+| `@ClawKit/vue` | Vue 3 Renderer | 📋 Planned |
+| `@ClawKit/flutter` | Flutter Renderer | 📋 Planned |
+| `ClawKit` (Python) | Python SDK for agent developers | 🚧 In Development |
+| `@ClawKit/sdk` | TypeScript SDK for agent developers | 🚧 In Development |
+| `@ClawKit/registry` | Widget Registry client + publishing tools | 📋 Planned |
+| `@ClawKit/widgets` | 30+ official built-in widgets | 🚧 In Development |
 
 > **Full architecture doc**: [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md)
 
@@ -342,20 +342,20 @@ Agent processes and responds (possibly with new widgets)
 
 ## LLM Extensibility
 
-FlowKit is designed to work with any LLM. Three mechanisms ensure reliable widget generation:
+ClawKit is designed to work with any LLM. Three mechanisms ensure reliable widget generation:
 
 ### 1. Schema-as-Prompt
 
 Every widget ships with an LLM-readable schema summary. Drop it into your system prompt:
 
 ```python
-from flowkit import get_widget_prompts
+from ClawKit import get_widget_prompts
 
 # Get prompt-ready descriptions for selected widgets
 prompt_context = get_widget_prompts([
-    "flowkit/map-route",
-    "flowkit/product-carousel",
-    "flowkit/metrics"
+    "ClawKit/map-route",
+    "ClawKit/product-carousel",
+    "ClawKit/metrics"
 ])
 
 system_prompt = f"""You are a helpful assistant.
@@ -368,19 +368,19 @@ Available widgets:
 
 ### 2. Recommend API
 
-Don't know which widget to use? Let FlowKit decide:
+Don't know which widget to use? Let ClawKit decide:
 
 ```python
-from flowkit import recommend_widgets
+from ClawKit import recommend_widgets
 
 suggestions = recommend_widgets(
     context="User asked about nearby restaurants for dinner",
     max_results=3
 )
 # Returns: [
-#   {"type": "flowkit/map-list", "confidence": 0.92},
-#   {"type": "flowkit/product-carousel", "confidence": 0.78},
-#   {"type": "flowkit/quick-actions", "confidence": 0.71}
+#   {"type": "ClawKit/map-list", "confidence": 0.92},
+#   {"type": "ClawKit/product-carousel", "confidence": 0.78},
+#   {"type": "ClawKit/quick-actions", "confidence": 0.71}
 # ]
 ```
 
@@ -389,7 +389,7 @@ suggestions = recommend_widgets(
 All widget JSON is validated against schemas. On failure, graceful degradation to text:
 
 ```python
-from flowkit import validate_widget
+from ClawKit import validate_widget
 
 result = validate_widget(widget_json)
 if not result.valid:
@@ -402,13 +402,13 @@ if not result.valid:
 
 ## Compatibility
 
-FlowKit is designed to coexist with (not replace) the emerging Agent UI ecosystem:
+ClawKit is designed to coexist with (not replace) the emerging Agent UI ecosystem:
 
 | Protocol | Relationship |
 |----------|-------------|
-| **AG-UI** (CopilotKit) | FlowKit messages can be transported over AG-UI event streams |
+| **AG-UI** (CopilotKit) | ClawKit messages can be transported over AG-UI event streams |
 | **A2UI** (Google) | L1 declarative widgets can use A2UI component format internally |
-| **MCP Apps** (Anthropic + OpenAI) | FlowKit widgets can wrap MCP App iframes |
+| **MCP Apps** (Anthropic + OpenAI) | ClawKit widgets can wrap MCP App iframes |
 | **Open-JSON-UI** (OpenAI) | Compatible schema mapping available |
 
 ---
@@ -432,15 +432,15 @@ We welcome contributions of all kinds! See [CONTRIBUTING.md](docs/CONTRIBUTING.m
 
 - 🎨 **Widget developers** — Build widgets and publish to Registry
 - 🔧 **Renderer developers** — Help build Vue / Flutter / Mini Program renderers
-- 🧪 **Agent developers** — Try FlowKit in your agent and give feedback
+- 🧪 **Agent developers** — Try ClawKit in your agent and give feedback
 - 📖 **Documentation** — Improve docs, write tutorials, translate
 - 💡 **Ideas** — Open issues with your use cases and widget ideas
 
 ### Development Setup
 
 ```bash
-git clone https://github.com/user/flowkit.git
-cd flowkit
+git clone https://github.com/user/ClawKit.git
+cd ClawKit
 pnpm install        # Install all dependencies
 pnpm dev            # Start development server
 pnpm test           # Run tests
@@ -450,7 +450,7 @@ pnpm build          # Build all packages
 ### Project Structure
 
 ```
-flowkit/
+ClawKit/
 ├── packages/
 │   ├── protocol/       # JSON Schema definitions & TypeScript types
 │   ├── core/           # Protocol parser, validator, widget resolver
@@ -459,7 +459,7 @@ flowkit/
 │   ├── widgets/        # 30+ official built-in widgets
 │   └── sdk/            # TypeScript SDK for agent developers
 ├── python/
-│   └── flowkit/        # Python SDK
+│   └── ClawKit/        # Python SDK
 ├── apps/
 │   ├── demo/           # Demo application (4 scenarios)
 │   ├── registry/       # Widget Registry server
@@ -481,22 +481,22 @@ flowkit/
 
 ## Community
 
-- 💬 [Discord](https://discord.gg/flowkit) — Chat with the team and community
-- 🐦 [Twitter](https://twitter.com/flowkit) — Updates and announcements
-- 📝 [Blog](https://flowkit.dev/blog) — Deep dives and tutorials
-- 🐛 [Issues](https://github.com/user/flowkit/issues) — Bug reports and feature requests
+- 💬 [Discord](https://discord.gg/ClawKit) — Chat with the team and community
+- 🐦 [Twitter](https://twitter.com/ClawKit) — Updates and announcements
+- 📝 [Blog](https://ClawKit.dev/blog) — Deep dives and tutorials
+- 🐛 [Issues](https://github.com/user/ClawKit/issues) — Bug reports and feature requests
 
 ---
 
 ## License
 
-FlowKit is open source under the [Apache License 2.0](LICENSE).
+ClawKit is open source under the [Apache License 2.0](LICENSE).
 
 The core protocol, all renderers, built-in widgets, and SDKs are **free forever**.
 
 ---
 
 <p align="center">
-  <strong>FlowKit — Let every Agent speak GUI.</strong><br/>
+  <strong>ClawKit — Let every Agent speak GUI.</strong><br/>
   <sub>Built with ❤️ for the Agent-native future.</sub>
 </p>
